@@ -25,7 +25,8 @@ module.exports = class deco extends Component {
     if (this.state.tip){
       return (
         <View style={styles.container}>
-          <Text>Tip of the day : {this.state.tip} </Text>
+          <Image source={{uri: this.state.tip_image}} style={styles.image}/>
+          <Text style={styles.tip}>Tip of the day : {this.state.tip}</Text>
         </View>
       )
     } else {
@@ -35,7 +36,6 @@ module.exports = class deco extends Component {
         </View>
       );
     }
-
   }
 
   fetchData(url) {
@@ -72,5 +72,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginTop: 20,
+  },
+  tip: {
+    borderWidth: 2,
+    borderColor: '#5E5E5E',
+    borderStyle: 'solid',
+    padding: 8,
+    margin: 20,
+    borderRadius: 8,
+    fontFamily: 'Chalkboard SE',
+    backgroundColor: '#AA72FC',
+    overflow: 'hidden',
+    fontSize: 16,
+  },
+  image: {
+    width: 240,
+    height: 240,
+    marginBottom: 30,
+    borderRadius: 8
   },
 });
